@@ -1,0 +1,55 @@
+ <div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">CREAR PRODUCTO</span>
+                    <form class="mt-3" [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
+                        <div class="mb-3">
+                            
+                            <input type="text" 
+                                   class="form-control form-control-lg mt-2 " 
+                                   formControlName="producto" 
+                                   placeholder="Ingrese el prodcuto">
+                                <div class="text-danger" 
+                                    *ngIf="productoForm.get('producto')?.hasError('required') && productoForm.get('producto')?.touched">
+                                    <span>El nombre del producto es <strong>OBLIGATORIO</strong></span>
+                                </div>
+                            <input type="text" 
+                                   class="form-control form-control-lg mt-2" 
+                                   formControlName="categoria"  
+                                   placeholder="Ingrese la categoria">
+                                   <div class="text-danger" 
+                                    *ngIf="productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched">
+                                    <span>La categoria es <strong>OBLIGATORIA</strong></span>
+                                   </div>
+
+                            <input type="text" 
+                                   class="form-control form-control-lg mt-2" 
+                                   formControlName="ubicacion"  
+                                   placeholder="Ingrese la ubicacion">
+                                   <div class="text-danger" 
+                                   *ngIf="productoForm.get('ubicacion')?.hasError('required') && productoForm.get('ubicacion')?.touched">
+                                   <span>La ubicacion es <strong>OBLIGATORIA</strong></span>
+                               </div> 
+                            <input type="number" 
+                                   class="form-control form-control-lg mt-2" 
+                                   formControlName="precio" 
+                                   placeholder="Ingrese el precio">
+                                   <div class="text-danger" 
+                                   *ngIf="productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched">
+                                   <span>El precio es <strong>OBLIGATORIO</strong></span>
+                               </div> 
+                          </div>
+                          <div class="mb-3">
+                            <button class="btn btn-secondary btn-lg float-start" routerLink="/" >VOLVER</button>
+                            <button type="submit" [disabled]="productoForm.invalid" class="btn btn-primary btn-lg float-end">ACEPTAR</button>
+                          </div>
+                          
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+ </div>
